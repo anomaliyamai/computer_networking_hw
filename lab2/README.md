@@ -1,17 +1,26 @@
 - Реализован поиск минимального MTU в канале между локальным пользователем и хостом
 - код обёрнут в docker контейнер
-- так же присутствует возможность отдельно запустить скрипт на macos или ubuntu
+- Скрипт проверен на macos и на ubuntu
 
-### Тестирование:
-копируем репозиторий
-```
-$ git clone git@github.com:evlampiy-lavrentiev/hse-networks-hw.git
-$ cd lab2
-```
+### Как запустить:
+Копируем репозиторий и заходим в папку lab2.
 
-билдим и запускаем докер
+Собираем образ и запускаем контейнер:
 ```
-$ docker build . -f Dockerfile -t MTU-finder
-$ docker run MTU-finder
+$ docker build . -t mtuchecker
+$ docker run -i -t mtuchecker
+Host: ya.ru
+MTU 737 is ok
+MTU 1105 is ok
+MTU 1289 is ok
+MTU 1381 is ok
+MTU 1427 bad
+MTU 1404 is ok
+MTU 1415 is ok
+MTU 1421 is ok
+MTU 1424 bad
+MTU 1422 is ok
+MTU 1423 bad
+minimal MTU for ya.ru = 1422
 ```
 Готово!
